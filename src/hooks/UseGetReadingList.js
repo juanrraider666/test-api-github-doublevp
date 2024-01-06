@@ -1,15 +1,16 @@
-// import { useQuery } from "@tanstack/react-query"
-import { getAll } from '../api/users'
-import { useQuery } from 'react-query';
-
-export function UseGetReadingList() {
-  const { data, isLoading, isError } = useQuery('reading-list', () => getAll(), {
-     suspense: true,
-   });
+import {getAll, getOneByName} from '../api/users'
+// import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query'
+export function UseGetReadingList({name}) {
+    console.log(name)
+    const { isPending, error, data } = useQuery({
+        queryKey: ['users'],
+        queryFn: () => getOneByName(name),
+    });
 
   return {
-    list: data.items,
-    loading: isLoading,
-    total: isError ? 0 : data.total_count,
+    list: error ? [] : data?.items,
+    loading: isPending,
+    total: error ? 0 : data?.total_count,
   }
 }

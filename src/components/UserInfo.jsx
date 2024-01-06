@@ -7,7 +7,6 @@ import Animated, {
 import {useRef} from "react";
 
 export function UserInfo ({ user }) {
-    console.log(user)
     return (
             <Animated.View
                 style={styles.container}

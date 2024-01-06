@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-export default function divider() {
+export default function Divider() {
     return (
       <View style={styles.line}></View>
     );

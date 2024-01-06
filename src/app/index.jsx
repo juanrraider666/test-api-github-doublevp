@@ -1,30 +1,21 @@
-import React, {Suspense} from 'react'
-import {Stack, useNavigation} from 'expo-router'
-import {View} from 'react-native'
-import {Loading} from "../components/ui/Loading";
-import {ReadingList} from "../components/ReadingList";
-import {QueryClient, QueryClientProvider} from "react-query";
-import _header from "../components/ui/_header";
+import React from 'react'
+import {Stack} from 'expo-router'
+import Home from "../components/Home";
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-export default function Home() {
-    const navigation = useNavigation();
-    const queryClient = new QueryClient();
+
+export default function Index() {
+    const Stack = createNativeStackNavigator();
     return (
         <>
-            <Stack.Screen
-                options={{
-                    title: 'Welcome users list Github',
-                    headerTitle: 'My App',
-                    headerRight: () => <_header />,
-                }}
-            />
-            <Suspense fallback={<Loading/>}>
-                <View className="flex-1 pt-[10px] px-[20px]">
-                    <QueryClientProvider client={queryClient}>
-                        <ReadingList/>
-                    </QueryClientProvider>
-                </View>
-            </Suspense>
+            <Stack.Navigator>
+                    <Stack.Screen
+                        name="Home"
+                        component={Home}
+                        options={{title: 'Users'}}
+                    />
+                {/*<Stack.Screen name="Stack1" component={Divider} /> en dado caso de que queramos navegar a esta Stack */}
+            </Stack.Navigator>
         </>
     )
 }
