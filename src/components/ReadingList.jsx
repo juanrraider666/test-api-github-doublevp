@@ -1,11 +1,9 @@
-import React, {useState} from "react";
-import { View, Text, ScrollView, FlatList, Dimensions, TouchableHighlight, StatusBar, StyleSheet} from "react-native";
-import { UseGetReadingList } from "../hooks/UseGetReadingList";
-import { UserInfo } from "./UserInfo";
+import React from "react";
+import {FlatList, StatusBar, StyleSheet, Text, TouchableHighlight, View} from "react-native";
+import {UserInfo} from "./UserInfo";
 import Divider from "./ui/Divider";
 
-export function ReadingList ({name}) {
-    const { list, loading, total } = UseGetReadingList({name})
+export function ReadingList ({list, total}) {
     return (
         <View /*className="-m-5 p-5 pb-2 bg-[#c9f0ff]"*/>
             {total > 0 && (
@@ -33,7 +31,7 @@ export function ReadingList ({name}) {
                 )}
 
             {total === 0 && (
-                <Text>No hay información, consulte de nuevo más tarde!</Text>
+                <Text>No Results</Text>
             )}
 
         </View>
