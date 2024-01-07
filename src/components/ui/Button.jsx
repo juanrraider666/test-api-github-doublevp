@@ -1,5 +1,5 @@
 import React from 'react'
-import {ActivityIndicator, Pressable, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {ActivityIndicator, Pressable, StyleSheet, Text} from 'react-native'
 
 export function Button ({
   children: title,

@@ -1,11 +1,9 @@
-import {StyleSheet, View} from "react-native";
+import {View} from "react-native";
 import React, {Suspense, useEffect, useState} from "react";
-import {useNavigation} from '@react-navigation/native';
-import {QueryClient} from 'react-query';
 
 import {Loading} from "./ui/Loading";
 import {ReadingList} from "./ReadingList";
-import {FilterInput} from "./ui/FilterForm";
+import {SearchInput} from "./ui/SearchInput";
 import {UseGetReadingList} from "../hooks/UseGetReadingList";
 import {Button} from "./ui/Button";
 import showToast from "../utils/Toast";
@@ -55,7 +53,7 @@ export default function Home() {
     return (
         <Suspense fallback={<Loading/>}>
             <View className="flex-1 pt-[10px] px-[20px]">
-                <FilterInput
+                <SearchInput
                     placeholder="Nombre de usuario"
                     value={searchText}
                     onChangeText={setSearchText}

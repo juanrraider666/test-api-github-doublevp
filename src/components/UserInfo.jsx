@@ -1,9 +1,5 @@
-import {Text, View, Pressable, StyleSheet, Image, Linking, TouchableOpacity} from "react-native";
-import Animated, {
-    RollOutLeft,
-    SequencedTransition,
-    ZoomIn
-} from 'react-native-reanimated'
+import {Image, Linking, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import Animated, {RollOutLeft, SequencedTransition, ZoomIn} from 'react-native-reanimated'
 
 export function UserInfo ({ user }) {
     return (

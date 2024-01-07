@@ -1,8 +1,8 @@
 import React from "react";
 import {FlatList, StatusBar, StyleSheet, Text, TouchableHighlight, View, useColorScheme} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 import {UserInfo} from "./UserInfo";
 import Divider from "./ui/Divider";
-import {useNavigation} from "@react-navigation/native";
 
 export function ReadingList ({list, total}) {
     const navigation = useNavigation();

@@ -1,7 +1,7 @@
-
 import React from 'react';
-import { TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
-export const FilterInput = ({ placeholder, value, onChangeText }) => {
+import {StyleSheet, TextInput} from 'react-native';
+
+export const SearchInput = ({ placeholder, value, onChangeText }) => {
     return (
         <TextInput
             className={`text-black`}

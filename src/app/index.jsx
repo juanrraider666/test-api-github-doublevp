@@ -1,16 +1,9 @@
-import React, {Suspense} from 'react'
+import React from 'react'
 import {Stack} from 'expo-router'
-import {View} from 'react-native'
-import {Loading} from "../components/ui/Loading";
-import {ReadingList} from "../components/ReadingList";
 import {QueryClient, QueryClientProvider} from "react-query";
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import ReadingInfoDetail from "../components/ReadingInfoDetail";
 import Home from "../components/Home";
-import { NavigationContainer } from '@react-navigation/native';
-import {createNativeStackNavigator } from '@react-navigation/native-stack';
-import Divider from "../components/ui/Divider";
-import UserInfoDetail from "../components/UserInfoDetail";
-
-
 
 export default function Index() {
     const Stack = createNativeStackNavigator();
@@ -24,8 +17,7 @@ export default function Index() {
                         component={Home}
                         options={{title: 'Usuarios'}}
                     />
-                    <Stack.Screen name="Detail" component={UserInfoDetail} options={{title: 'Detalles'}} />
-                    {/*<Stack.Screen name="Stack1" component={Divider} /> en dado caso de que queramos navegar a esta Stack */}
+                    <Stack.Screen name="Detail" component={ReadingInfoDetail} options={{title: 'Detalles'}} />
                 </Stack.Navigator>
             </QueryClientProvider>
 

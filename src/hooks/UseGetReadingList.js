@@ -2,6 +2,13 @@ import {getAll, getOneByName} from '../api/users'
 import {useQuery} from "react-query";
 import { useState } from 'react'
 
+/**
+ * Se encarga de leer el endpoint y normalizar la info.
+ *
+ * @param limit
+ * @returns {{isLoading: boolean, incomplete: *, data: *, applyFilters: applyFilters, totalCount: *}}
+ * @constructor
+ */
 export const UseGetReadingList = (limit = null) =>  {
 
     const [filters, setFilters] = useState({

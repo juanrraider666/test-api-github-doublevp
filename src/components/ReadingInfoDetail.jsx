@@ -1,16 +1,16 @@
 import React from 'react';
 import {View, Text, ScrollView, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import ReadingUser from "./ReadingUser";
 import FollowersChart from "./FollowersChart";
+import {getOne} from "../hooks/UseGetUserProfile";
 
-const UserInfoDetail = ({ route }) => {
-    const { user } = route.params;
-    const name = user.login;
-    const { userInfo } = ReadingUser(name);
+const ReadingInfoDetail = ({ route }) => {
+    const { userParam } = route.params;
+    const name = userParam.login;
+    const { user } = getOne(name);
 
-    const followers = userInfo.followers;
-    const following = userInfo.following;
-    const repos     = userInfo.public_repos;
+    const followers = user.followers;
+    const following = user.following;
+    const repos     = user.public_repos;
 
     return (
         <ScrollView
@@ -45,7 +45,7 @@ const UserInfoDetail = ({ route }) => {
     );
 };
 
-export default UserInfoDetail;
+export default ReadingInfoDetail;
 
 const styles = StyleSheet.create({
     container: {

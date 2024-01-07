@@ -1,15 +1,7 @@
-// Importa las librerías necesarias
 import React from 'react';
-import {
-    SafeAreaView,
-    Text,
-    View,
-    StyleSheet,
-    Dimensions,
-    ScrollView,
-} from 'react-native';
+import {Dimensions, StyleSheet, Text, View,} from 'react-native';
 
-import {BarChart, ProgressChart, StackedBarChart} from 'react-native-chart-kit';
+import {ProgressChart} from 'react-native-chart-kit';
 
 const FollowersChart = ({followers, following}) => {
     const data = {
@@ -19,7 +11,7 @@ const FollowersChart = ({followers, following}) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Mis metricas:</Text>
+            <Text style={styles.header}>Metricas:</Text>
             <ProgressChart
                 data={data}
                 width={Dimensions.get('window').width - 16}
@@ -44,6 +36,7 @@ const FollowersChart = ({followers, following}) => {
 };
 
 export default FollowersChart;
+
 const styles = StyleSheet.create({
     container: {
         // flex: 1,
