@@ -5,6 +5,7 @@ import Animated, {
     ZoomIn
 } from 'react-native-reanimated'
 import {useRef} from "react";
+import FollowersChart from "./FollowersChart";
 
 export function UserInfo ({ user }) {
     return (

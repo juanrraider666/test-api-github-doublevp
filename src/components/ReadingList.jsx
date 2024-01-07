@@ -2,10 +2,14 @@ import React from "react";
 import {FlatList, StatusBar, StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import {UserInfo} from "./UserInfo";
 import Divider from "./ui/Divider";
+import {useNavigation} from "@react-navigation/native";
 
 export function ReadingList ({list, total}) {
+    const navigation = useNavigation();
+
     return (
         <View /*className="-m-5 p-5 pb-2 bg-[#c9f0ff]"*/>
+            <Text>Total users ({total})</Text>
             {total > 0 && (
                 <FlatList
                     data={list}
@@ -18,9 +22,7 @@ export function ReadingList ({list, total}) {
                     renderItem={({ item }) => (
                         <TouchableHighlight
                             key={item.id}
-                            onPress={() => {
-                               // console.log(item);
-                            }}
+                            onPress={() => navigation.navigate("Detail", { user: item })}
                             activeOpacity={0.6}
                             underlayColor="#DDDDDD"
                             >

@@ -11,3 +11,9 @@ export const getOneByName = async ({filters}) => {
 
     return await axios.get(url).then(({ data }) => data)
 };
+
+export const getDetail = async (name) => {
+    const url = `https://api.github.com/users/${name}`
+
+    return await axios.get(url).then(({ data }) => data)
+};

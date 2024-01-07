@@ -8,6 +8,7 @@ import Home from "../components/Home";
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator } from '@react-navigation/native-stack';
 import Divider from "../components/ui/Divider";
+import UserInfoDetail from "../components/UserInfoDetail";
 
 
 
@@ -23,6 +24,7 @@ export default function Index() {
                         component={Home}
                         options={{title: 'Users'}}
                     />
+                    <Stack.Screen name="Detail" component={UserInfoDetail} />
                     {/*<Stack.Screen name="Stack1" component={Divider} /> en dado caso de que queramos navegar a esta Stack */}
                 </Stack.Navigator>
             </QueryClientProvider>

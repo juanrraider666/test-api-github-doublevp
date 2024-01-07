@@ -1,9 +1,8 @@
-import { getOneByName } from '../api/users'
+import {getDetail, getOneByName} from '../api/users'
 import { useQuery } from 'react-query';
 
 
-export function getOne(name) {
-    const { data: user } = useQuery(['user', name], () => getOneByName({ name }), { suspense: true })
-
-    return user
+export const getOne = (name) => {
+    const { data: user } = useQuery(['user', name], () => getDetail(name), { suspense: true })
+    return {user}
 }

@@ -1,10 +1,10 @@
 import {getOne} from "../hooks/getUserProfile";
 
 
-export default function ReadingUser(word) {
-    const { user } = getOne(word);
+export default function ReadingUser(name) {
+    const { user } = getOne(name);
 
     return {
-        user
-    }
+        userInfo: user
+    };
 }

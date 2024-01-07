@@ -8,9 +8,10 @@ import {ReadingList} from "./ReadingList";
 import {FilterButton, FilterInput} from "./ui/FilterForm";
 import {UseGetReadingList} from "../hooks/UseGetReadingList";
 
+const LIMIT = 10;
+
 export default function Home() {
     const [searchText, setSearchText] = useState('lucachangretta');
-    const navigation = useNavigation();
     const queryClient = new QueryClient();
 
     const {
@@ -19,7 +20,7 @@ export default function Home() {
         totalCount,
         incomplete,
         applyFilters
-    } = UseGetReadingList()
+    } = UseGetReadingList(LIMIT)
 
     const search = () => {
         applyFilters({
