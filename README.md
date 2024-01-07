@@ -1,4 +1,4 @@
-# GitHub Users App 
+# GitHub Users App  🕵️
 
 Esta aplicación utiliza la API Rest pública de GitHub para obtener una lista de usuarios y mostrar información detallada de sus perfiles. 👁️
 
