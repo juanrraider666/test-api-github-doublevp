@@ -4,13 +4,13 @@ import FollowersChart from "./FollowersChart";
 import {getOne} from "../hooks/UseGetUserProfile";
 
 const ReadingInfoDetail = ({ route }) => {
-    const { userParam } = route.params;
-    const name = userParam.login;
-    const { user } = getOne(name);
+    const { user } = route.params;
+    const name = user.login;
+    const { userDetail } = getOne(name);
 
-    const followers = user.followers;
-    const following = user.following;
-    const repos     = user.public_repos;
+    const followers = userDetail.followers;
+    const following = userDetail.following;
+    const repos     = userDetail.public_repos;
 
     return (
         <ScrollView
@@ -23,7 +23,7 @@ const ReadingInfoDetail = ({ route }) => {
             />
             <Text style={styles.userName}>{user.login}</Text>
             <Text style={styles.aboutUser}>
-                {userInfo ? userInfo.bio || 'Biografia sin detalles.' : ''}
+                {userDetail ? userDetail.bio || 'Biografia sin detalles.' : ''}
             </Text>
             <View style={styles.userInfoWrapper}>
                 <View style={styles.userInfoItem}>
