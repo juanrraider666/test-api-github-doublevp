@@ -1,4 +1,4 @@
-import {getOne} from "../hooks/getUserProfile";
+import {getOne} from "../hooks/UseGetUserProfile";
 
 
 export default function ReadingUser(name) {

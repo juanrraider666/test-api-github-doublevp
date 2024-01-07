@@ -8,16 +8,14 @@ import {ReadingList} from "./ReadingList";
 import {FilterInput} from "./ui/FilterForm";
 import {UseGetReadingList} from "../hooks/UseGetReadingList";
 import {Button} from "./ui/Button";
-import ErrorLabel from "./ui/ErrorLabel";
+import showToast from "../utils/Toast";
+import Toast from "react-native-toast-message";
 
-const LIMIT = 10;
+const RECORDED_LIMIT = 10;
 
 
 export default function Home() {
     const [searchText, setSearchText] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-
-    const queryClient = new QueryClient();
 
     const {
         data,
@@ -25,7 +23,7 @@ export default function Home() {
         totalCount,
         incomplete,
         applyFilters
-    } = UseGetReadingList(LIMIT)
+    } = UseGetReadingList(RECORDED_LIMIT)
 
     const search = () => {
         validateInput(searchText)
@@ -45,18 +43,14 @@ export default function Home() {
         } else {
             // Mostrar mensajes de error según las condiciones no cumplidas
             if (text.length < 4) {
-                setErrorMessage('pspsps')
+                showToast({ type: 'error', text: 'Agregue mas de 4 caracteres.' });
             }
 
             if (text.toLowerCase() === 'doublevpartners') {
-                setErrorMessage('La palabra "doublevpartners" no está permitida.')
+                showToast({ type: 'error', text: 'La palabra "doublevpartners" no está permitida.'})
             }
         }
     }
-
-    const closeErrorMessage = () => {
-        setErrorMessage('');
-    };
 
     return (
         <Suspense fallback={<Loading/>}>
@@ -76,22 +70,10 @@ export default function Home() {
                 </Button>
 
                 {isLoading && <Loading/>}
-                {errorMessage !== '' && (
-                    <ErrorLabel message={errorMessage} onClose={closeErrorMessage} />
-                )}
-
+                <Toast />
                 {data && <ReadingList list={data} total={totalCount}/>}
 
             </View>
         </Suspense>
     );
 }
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
