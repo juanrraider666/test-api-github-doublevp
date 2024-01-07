@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, Pressable, StyleSheet, Text } from 'react-native'
+import {ActivityIndicator, Pressable, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 
 export function Button ({
   children: title,
@@ -23,10 +23,7 @@ export function Button ({
       {isLoading && (
         <ActivityIndicator size="small"/>
       )}
-      <Text className='py-[2px] text-sm' style={[
-        textStyles[variant] ?? textStyles.primary,
-        textStyles[size] ?? null,
-      ]}>
+      <Text className="text-2xl text-black dark:text-white">
         {isLoading && loadingText ? loadingText : title}
       </Text>
     </Pressable>

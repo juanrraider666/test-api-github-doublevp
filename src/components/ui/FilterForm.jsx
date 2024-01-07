@@ -4,6 +4,7 @@ import { TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
 export const FilterInput = ({ placeholder, value, onChangeText }) => {
     return (
         <TextInput
+            className={`text-black`}
             style={styles.input}
             placeholder={placeholder}
             value={value}
@@ -11,28 +12,6 @@ export const FilterInput = ({ placeholder, value, onChangeText }) => {
         />
     );
 }
-
-
-export const FilterButton = ({ onPress, title }) => {
-    return (
-        <TouchableOpacity style={stylesB.button} onPress={onPress}>
-            <Text style={stylesB.buttonText}>{title}</Text>
-        </TouchableOpacity>
-    );
-};
-
-const stylesB = StyleSheet.create({
-    button: {
-        backgroundColor: 'blue',
-        padding: 10,
-        borderRadius: 5,
-        alignItems: 'center',
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: 'bold',
-    },
-});
 
 const styles = StyleSheet.create({
     input: {

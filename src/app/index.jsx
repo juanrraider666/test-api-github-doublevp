@@ -22,9 +22,9 @@ export default function Index() {
                     <Stack.Screen
                         name="Home"
                         component={Home}
-                        options={{title: 'Users'}}
+                        options={{title: 'Usuarios'}}
                     />
-                    <Stack.Screen name="Detail" component={UserInfoDetail} />
+                    <Stack.Screen name="Detail" component={UserInfoDetail} options={{title: 'Detalles'}} />
                     {/*<Stack.Screen name="Stack1" component={Divider} /> en dado caso de que queramos navegar a esta Stack */}
                 </Stack.Navigator>
             </QueryClientProvider>

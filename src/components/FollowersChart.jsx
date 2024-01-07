@@ -9,57 +9,53 @@ import {
     ScrollView,
 } from 'react-native';
 
-import { BarChart } from 'react-native-chart-kit';
+import {BarChart, ProgressChart, StackedBarChart} from 'react-native-chart-kit';
 
-const FollowersChart = () => {
+const FollowersChart = ({followers, following}) => {
+    const data = {
+        labels: ['Seg', 'Seg'],
+        data: [followers / 10, following / 10],
+    };
+
     return (
-    <>
-        <Text style={styles.header}>Bar Chart</Text>
-        <BarChart
-            data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [
-                    {
-                        data: [20, 45, 28, 80, 99, 43],
+        <View style={styles.container}>
+            <Text style={styles.header}>Mis metricas:</Text>
+            <ProgressChart
+                data={data}
+                width={Dimensions.get('window').width - 16}
+                height={220}
+                chartConfig={{
+                    backgroundColor: '#cc14aa',
+                    backgroundGradientFrom: '#7ff591',
+                    backgroundGradientTo: '#f0f716',
+                    decimalPlaces: 2,
+                    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                    style: {
+                        borderRadius: 16,
                     },
-                ],
-            }}
-            width={Dimensions.get('window').width - 16}
-            height={220}
-            yAxisLabel={'Rs'}
-            chartConfig={{
-                backgroundColor: '#1cc910',
-                backgroundGradientFrom: '#eff3ff',
-                backgroundGradientTo: '#efefef',
-                decimalPlaces: 2,
-                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-                style: {
+                }}
+                style={{
+                    marginVertical: 8,
                     borderRadius: 16,
-                },
-            }}
-            style={{
-                marginVertical: 8,
-                borderRadius: 16,
-            }}
-        />
-    </>
-);
+                }}
+            />
+        </View>
+    );
 };
 
 export default FollowersChart;
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'white',
+        // flex: 1,
+        //   backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
-        padding: 10,
+         padding: 5,
+         paddingBottom: 5,
     },
     header: {
         textAlign: 'center',
         fontSize: 18,
-        padding: 16,
-        marginTop: 16,
     },
 });

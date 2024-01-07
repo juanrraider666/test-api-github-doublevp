@@ -5,7 +5,7 @@ import { useState } from 'react'
 export const UseGetReadingList = (limit = null) =>  {
 
     const [filters, setFilters] = useState({
-        name: 'lucachangretta'
+        name: 'juanrraider666'
     })
 
     const { isLoading, isError, data, error} = useQuery(

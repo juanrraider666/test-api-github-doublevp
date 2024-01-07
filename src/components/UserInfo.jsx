@@ -1,17 +1,14 @@
-import {Text, View, Pressable, StyleSheet, Image} from "react-native";
+import {Text, View, Pressable, StyleSheet, Image, Linking, TouchableOpacity} from "react-native";
 import Animated, {
     RollOutLeft,
     SequencedTransition,
     ZoomIn
 } from 'react-native-reanimated'
-import {useRef} from "react";
-import FollowersChart from "./FollowersChart";
 
 export function UserInfo ({ user }) {
     return (
             <Animated.View
                 style={styles.container}
-                // className="self-center items-start relative"
                 entering={ZoomIn}
                 exiting={RollOutLeft}
                 layout={SequencedTransition.duration(400).randomDelay()}
@@ -24,9 +21,14 @@ export function UserInfo ({ user }) {
                     <Text style={{ fontSize: 18, opacity: .7 }}>
                         {user?.id}
                     </Text>
-                    <Text style={{ fontSize: 14, opacity: .8 }}>
-                        {user?.type}
-                    </Text>
+
+                    <TouchableOpacity onPress={() => {
+                        Linking.openURL(user.html_url);
+                    }}>
+                        <Text style={{ fontSize: 14, opacity: .8 }}>
+                            Ver en Github
+                        </Text>
+                    </TouchableOpacity>
                 </View>
             </Animated.View>
     );
@@ -39,7 +41,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginBottom: 10,
         borderRadius: 12,
-       // backgroundColor: 'red'
     },
     tinyLogo: {
         width: 70,

@@ -1,15 +1,16 @@
 import React from "react";
-import {FlatList, StatusBar, StyleSheet, Text, TouchableHighlight, View} from "react-native";
+import {FlatList, StatusBar, StyleSheet, Text, TouchableHighlight, View, useColorScheme} from "react-native";
 import {UserInfo} from "./UserInfo";
 import Divider from "./ui/Divider";
 import {useNavigation} from "@react-navigation/native";
 
 export function ReadingList ({list, total}) {
     const navigation = useNavigation();
-
+    const isDarkMode = useColorScheme() === 'dark';
     return (
-        <View /*className="-m-5 p-5 pb-2 bg-[#c9f0ff]"*/>
-            <Text>Total users ({total})</Text>
+        <View>
+            <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+            {/*<Text className="text-2xl text-black dark:text-white">Total users ({total})</Text>*/}
             {total > 0 && (
                 <FlatList
                     data={list}
@@ -33,26 +34,9 @@ export function ReadingList ({list, total}) {
                 )}
 
             {total === 0 && (
-                <Text>No Results</Text>
+                <Text>No se encontraron resultados.</Text>
             )}
 
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    button: {
-        backgroundColor: '#3498db',
-        padding: 10,
-        borderRadius: 5,
-    },
-    buttonText: {
-        color: '#fff',
-        fontSize: 16,
-    },
-});
