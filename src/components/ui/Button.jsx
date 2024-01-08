@@ -23,7 +23,7 @@ export function Button ({
       {isLoading && (
         <ActivityIndicator size="small"/>
       )}
-      <Text className="text-2xl text-black dark:text-white">
+      <Text className="text-2xl text-white">
         {isLoading && loadingText ? loadingText : title}
       </Text>
     </Pressable>
@@ -35,7 +35,7 @@ const containerStyles = StyleSheet.create({
     opacity: 0.8,
   },
   primary: {
-    backgroundColor: '#3273a8',
+    backgroundColor: '#3ba7ff',
   },
   secondary: {
     backgroundColor: '#a3bce6',
