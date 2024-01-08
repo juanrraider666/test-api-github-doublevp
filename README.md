@@ -14,5 +14,5 @@ Esta aplicación utiliza la API Rest pública de GitHub para obtener una lista d
    ```bash
    git clone https://github.com/tu-usuario/github-users-app.git
 
-## Sdk Android
-https://expo.dev/artifacts/eas/7RiCqRgYKQyfDZhQVUkEYg.apk
+## Apk Android
+https://expo.dev/artifacts/eas/e8U7S5XT1ZHEYeWcTvLMU5.apk
