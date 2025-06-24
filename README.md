@@ -1,3 +1,5 @@
+# ![PHPPresentation](https://raw.githubusercontent.com/mvargasmoran/PHPPresentation/develop/docs/images/PHPPresentationLogo.png "PHPPresentation")
+
 # GitHub Users App  🕵️
 
 Esta aplicación utiliza la API Rest pública de GitHub para obtener una lista de usuarios y mostrar información detallada de sus perfiles. 👁️
