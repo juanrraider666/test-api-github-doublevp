@@ -1,4 +1,5 @@
-# ![PHPPresentation](https://raw.githubusercontent.com/mvargasmoran/PHPPresentation/develop/docs/images/PHPPresentationLogo.png "PHPPresentation")
+
+# ![ChatGPT Image 23 jun 2025, 19_16_23](https://github.com/user-attachments/assets/a914fe41-2703-4b8a-b278-0523160d54d4 "GitHubApp")
 
 # GitHub Users App  🕵️
 
